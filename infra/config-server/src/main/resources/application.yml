@@ -1,10 +1,16 @@
 spring:
+  application:
+    name: config_server
   cloud:
     config:
       server:
+        git:
+          uri: https://github.com/larionovda/app-config.git
 
-  profiles:
-     active: native
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: true
 
 server:
   port: ${CONFIG_PORT:8888}

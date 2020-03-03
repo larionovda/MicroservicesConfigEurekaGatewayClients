@@ -6,7 +6,18 @@ endpoints:
   health:
     sensitive: true
 
+spring:
+  application:
+    name: sample-api-gateway
+
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: true
+
 zuul:
   routes:
-    workspaces-api: /workspaces/**
-    employees-api: /employees/**
+    workspaces-service:
+       serviceId: workspaces-api
+    employees-service:
+      serviceId: employees-api
